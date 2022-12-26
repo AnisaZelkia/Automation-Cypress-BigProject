@@ -1,0 +1,20 @@
+{
+  "name": "nestui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "anisa",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^12.2.0"
+  },
+  "dependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@faker-js/faker": "^7.6.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "prettier": "^2.8.1"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  }
+}
