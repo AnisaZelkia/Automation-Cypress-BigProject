@@ -2,8 +2,8 @@ import * as assert from "@helper/asserts";
 import * as element from '@helper/elements';
 import * as route from '@helper/route';
 import { ROUTES } from "@tests/const/routes";
-import * as login from '@tests/data/login.data';
-import * as loginPage from '@tests/page/login.page';
+import * as login from '@tests/data/manager.data';
+import * as loginPage from '@tests/page/manager.page';
 
 
 describe('Customer Login Test', () => {
@@ -28,19 +28,65 @@ describe('Customer Login Test', () => {
             assert.shouldContainText(loginPage.userSelect,"---Your Name---");
         
             // Select option(s) with matching text content
-            cy.get(loginPage.userSelect).select('1');
+           // cy.get(loginPage.userSelect).select('1');
             // confirm the apples were selected
             // note that each value starts with "fr-" in our HTML
-            cy.get(loginPage.userSelect).select('2');
+            /*cy.get(loginPage.userSelect).select('2');
             cy.get(loginPage.userSelect).select('3');
             cy.get(loginPage.userSelect).select('4');
-            cy.get(loginPage.userSelect).select('5');
+            cy.get(loginPage.userSelect).select('5');*/
+
+            /*cy.get(loginPage.userSelect).select(1).should('have.value', '1');
+            cy.get(loginPage.userSelect).select(2).should('have.value', '2');
+            cy.get(loginPage.userSelect).select(3).should('have.value', '3');
+            cy.get(loginPage.userSelect).select(4).should('have.value', '4');
+            cy.get(loginPage.userSelect).select(5).should('have.value', '5');
+            */
+
+           cy.get(loginPage.userSelect)
+            .select('1', { force: true })
+            .invoke('val')
+            .should('eq', '1')
+
+            cy.get(loginPage.userSelect)
+            .select('2', { force: true })
+            .invoke('val')
+            .should('eq', '2')
+
+            cy.get(loginPage.userSelect)
+            .select('3', { force: true })
+            .invoke('val')
+            .should('eq', '3')
+
+            cy.get(loginPage.userSelect)
+            .select('4', { force: true })
+            .invoke('val')
+            .should('eq', '4')
+
+            cy.get(loginPage.userSelect)
+            .select('5', { force: true })
+            .invoke('val')
+            .should('eq', '5')
             element.click(loginPage.loginbtn);
+
+
+            cy.url().should('include', '/account')
+         
             assert.shouldContainText(loginPage.selected,'1013');
 
             cy.get(loginPage.accountSelect).select('number:1013');
             cy.get(loginPage.accountSelect).select('number:1014');
             cy.get(loginPage.accountSelect).select('number:1015');
+            element.click(loginPage.transactionbtn);
+            cy.get(loginPage.tabel)
+            .find('thead')
+            .find('td')
+            .find('a')
+            .first()
+            // checking the text of the <td> element in various ways
+            .should('have.text', '\n            Date-Time\n          ')
+  
+           
     });
     /*
     it('Ensure the user able to redirect in homepage when user entered valid login data', () => {
