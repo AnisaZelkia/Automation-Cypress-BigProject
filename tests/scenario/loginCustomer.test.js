@@ -2,16 +2,14 @@ import * as assert from "@helper/asserts";
 import * as element from '@helper/elements';
 import * as route from '@helper/route';
 import { ROUTES } from "@tests/const/routes";
-import * as login from '@tests/data/manager.data';
-import * as loginPage from '@tests/page/manager.page';
+import * as login from '@tests/data/login.data';
+import * as loginPage from '@tests/page/login.page';
 
 
 describe('Customer Login Test', () => {
     beforeEach(() =>{
         route.visit(ROUTES.login);
     });
-
-
 
     it('Ensure the error message is displayed when user entered valid login data', () => {
     /*test case code in here

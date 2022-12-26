@@ -35,9 +35,17 @@ describe('Flow manager Test', () => {
                       // .then(cb) callback is not retried,
                       // it either passes or fails
                       assert.shouldContainText(managerPage.customerclass,'Add Customer');
-
+                      
+                element.click(managerPage.addbtn);
+                element.fillfield(managerPage.fnameField, manager.customer.firstname);
+                element.fillfield(managerPage.lnameField, manager.customer.lastname);
+                element.fillfield(managerPage.postField, manager.customer.pos);
+                element.click(managerPage.submitbtn);
                   })
+               
+                   
+                    
                   
 
-
 });
+
