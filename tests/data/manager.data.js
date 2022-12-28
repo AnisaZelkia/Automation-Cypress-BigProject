@@ -5,3 +5,8 @@ export const customer ={
     lastname:generator.lastname(),
     pos:generator.pos()
 }
+
+export const nameCust= {
+    name :'Granger'
+
+}
