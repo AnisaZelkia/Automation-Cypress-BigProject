@@ -93,8 +93,8 @@ describe('Customer Login Test', () => {
             cy.get(loginPage.successMessage).should('have.text',"Deposit Successful");
 
             element.click(loginPage.withdrawlbtn);
-            element.fillfield(loginPage.amountFieldWd, login.AMOUNTWD.amount);
-            element.click(loginPage.loginbtn);
+            element.fillfield(loginPage.amountFieldwd, login.AMOUNTWD.amount);
+            element.click(loginPage.btnWd);
             cy.get(loginPage.successMessage).should('have.text',"Transaction successful");
   
            

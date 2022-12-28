@@ -23,6 +23,7 @@ export const rowtype = '#date';
 export const classname = 'span';
 export const tabel = '[ng-app="BankApp"]';
 export const amountField = '[ng-model="amount"]';
-export const amountFieldWd = '[ng-model="amount"]';
+export const amountFieldwd = '[type="number"]';
 export const successMessage = '[ng-show="message"]';
+export const btnWd = '[btn btn-default]';
 
