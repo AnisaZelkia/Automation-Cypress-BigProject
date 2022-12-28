@@ -4,6 +4,7 @@ import * as route from '@helper/route';
 import { ROUTES } from "@tests/const/routes";
 import * as login from '@tests/data/login.data';
 import * as loginPage from '@tests/page/login.page';
+import { depositbtn } from "../page/login.page";
 
 
 describe('Customer Login Test', () => {
@@ -83,6 +84,13 @@ describe('Customer Login Test', () => {
             .first()
             // checking the text of the <td> element in various ways
             .should('have.text', '\n            Date-Time\n          ')
+
+            element.click(loginPage.backbtn);
+
+            element.click(loginPage.depositbtn);
+            element.fillfield(loginPage.amountField, login.AMOUNT.amount);
+            element.click(loginPage.loginbtn);
+            cy.get(loginPage.successMessage).should('have.text',"Deposit Successful");
   
            
     });

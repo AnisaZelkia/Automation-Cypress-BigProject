@@ -21,4 +21,6 @@ export const backbtn = '[ng-click="back()"]';
 export const daterow = '[ng-click="sortType]';
 export const rowtype = '#date';
 export const classname = 'span';
-export const tabel = '[ng-app="BankApp"]'
+export const tabel = '[ng-app="BankApp"]';
+export const amountField = '[ng-model="amount"]';
+export const successMessage = '[ng-show="message"]'
