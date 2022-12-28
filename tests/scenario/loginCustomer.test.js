@@ -91,6 +91,11 @@ describe('Customer Login Test', () => {
             element.fillfield(loginPage.amountField, login.AMOUNT.amount);
             element.click(loginPage.loginbtn);
             cy.get(loginPage.successMessage).should('have.text',"Deposit Successful");
+
+            element.click(loginPage.withdrawlbtn);
+            element.fillfield(loginPage.amountFieldWd, login.AMOUNTWD.amount);
+            element.click(loginPage.loginbtn);
+            cy.get(loginPage.successMessage).should('have.text',"Transaction successful");
   
            
     });

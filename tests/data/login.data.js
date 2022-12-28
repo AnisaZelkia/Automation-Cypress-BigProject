@@ -12,5 +12,9 @@ export const VALID_LOGIN_DATA ={
 }
 
 export const AMOUNT ={
-    amount: 1234
+    amount: 12
+}
+
+export const AMOUNTWD ={
+    amount: 12
 }
