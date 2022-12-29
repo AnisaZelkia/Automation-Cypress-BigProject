@@ -12,7 +12,7 @@ describe('Customer Login Test', () => {
         route.visit(ROUTES.login);
     });
 
-    it('Ensure the error message is displayed when user entered valid login data', () => {
+    it.only('Ensure the error message is displayed when user entered valid login data', () => {
     /*test case code in here
         element.fillfield(loginPage.usernameField, login.INVALID_LOGIN_DATA.username);
         element.fillfield(loginPage.passwordField, login.INVALID_LOGIN_DATA.password);
@@ -89,13 +89,30 @@ describe('Customer Login Test', () => {
 
             element.click(loginPage.depositbtn);
             element.fillfield(loginPage.amountField, login.AMOUNT.amount);
-            element.click(loginPage.loginbtn);
+            cy.get(loginPage.loginbtn).as('btnDeposit').click();
+            cy.get('@btnDeposit').should('have.text', 'Deposit')
             cy.get(loginPage.successMessage).should('have.text',"Deposit Successful");
 
-            element.click(loginPage.withdrawlbtn);
-            element.fillfield(loginPage.amountFieldwd, login.AMOUNTWD.amount);
-            element.click(loginPage.btnWd);
-            cy.get(loginPage.successMessage).should('have.text',"Transaction successful");
+            cy.get(loginPage.btnWD)
+            .find('button')
+
+            .should(($button) => {
+                // console.log('disini,,,,,,,,,,,,', $button);
+              expect($button).to.have.text(login.AMOUNT.text1)
+            });
+            //   const className = $button[1].loginPage.btnWD;
+            //   expect(className).to.match(/btn btn-default/)
+            // 
+            // cy.get(loginPage.balance).should('have.text', login.AMOUNT.amount);
+            
+
+          /*  element.click(loginPage.withdrawlbtn);
+            element.fillfield(loginPage.amountField, login.AMOUNT.amountWD);
+            cy.get(loginPage.loginbtn).as('btnWD').click();
+            cy.get('@btnWD').should('have.text', 'Withdraw')
+            cy.get(loginPage.successMessage).should('have.text',"Transaction successfull");
+            */
+        
   
            
     });

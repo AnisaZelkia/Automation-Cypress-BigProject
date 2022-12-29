@@ -12,9 +12,14 @@ export const VALID_LOGIN_DATA ={
 }
 
 export const AMOUNT ={
-    amount: 12
+    amount: 1234
 }
 
+
 export const AMOUNTWD ={
-    amount: 12
+    amount: 123,
+    text1:"Deposit"
 }
+
+
+

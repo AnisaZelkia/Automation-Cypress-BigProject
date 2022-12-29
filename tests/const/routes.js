@@ -3,6 +3,7 @@ export const ROUTES = {
     manager: "/manager",
     addCust: "/manager/addCust",
     list: "/manager/list"
+    
 
   
 

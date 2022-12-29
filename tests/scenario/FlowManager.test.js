@@ -181,7 +181,7 @@ describe('Feature : Show Data Customer', () => {
   beforeEach(() =>{
       route.visit(ROUTES.manager);
   });
-  it.only('Scenario 1: To ensure manager can see list customers', () => {
+  it('Scenario 1: To ensure manager can see list customers', () => {
   
             element.click(managerPage.customerBtn);
                 cy.get('table')
@@ -195,7 +195,7 @@ describe('Feature : Show Data Customer', () => {
                 
      
               })
-              it.only('Scenario 2: To ensure manager can search by firstname and lastname to find the customers', () => {
+              it('Scenario 2: To ensure manager can search by firstname and lastname to find the customers', () => {
                 route.visit(ROUTES.list);
              
                     cy.get('table')
@@ -207,7 +207,53 @@ describe('Feature : Show Data Customer', () => {
                     element.fillfield(managerPage.searchfield, manager.nameCust.name);
                     cy.get('.ng-binding').contains('td', 'Hermoine', manager.nameCust.name).should('be.visible');
          
-                  })
+              })
+                  it.only('Scenario 3: To ensure manager can delete the customers data', () => {
+                    route.visit(ROUTES.list);
+             
+                    cy.get('table')
+                    .find('tbody .ng-scope');
+                  
+                    cy.get('#tbody tr')
+                    // by adding an assertion like this
+                    // we support an empty initial list without any items
+                    .should('have.length.gte', 0)
+                    .its('length')
+                    .then((N) => {
+                      // if N is zero, nothing to delete
+                      if (N === 0) {
+                        return
+                      }
+                      // delete one element
+                      cy.get(managerPage.deleteBtn).click()
+                      // fetch the list items; there should be N - 1 items
+                      cy.get('#tbody tr').should('have.length', N - 1)
+                    })
+                   
+            
+              });
+              it.only('Scenario 4: To ensure manager can process open account of the customers', () => {
+                /*test case code in here
+                    element.fillfield(loginPage.usernameField, login.INVALID_LOGIN_DATA.username);
+                    element.fillfield(loginPage.passwordField, login.INVALID_LOGIN_DATA.password);
+                    element.click(loginPage.loginButton);
+                    assert.shouldContainText(loginPage.errorMessage,"Epic sadface: Username and password do not match any user in this service" );*/
+                  
+                        // select usernmae
+                    
+                        // at first, no option should be selected
+                        element.click(managerPage.openBtn);
+                        cy.get(managerPage.userSelect)
+                        assert.shouldContainText(managerPage.userSelect,"---Customer Name---");
+                    
+                        // Select option(s) with matching text content
+                       cy.get(managerPage.userSelect).select('1');
+                     
+                        cy.get(managerPage.userSelect).select('2');
+                        cy.get(managerPage.userSelect).select('3');
+                        cy.get(managerPage.userSelect).select('4');
+                        cy.get(managerPage.userSelect).select('5');
+            
 
 
 });

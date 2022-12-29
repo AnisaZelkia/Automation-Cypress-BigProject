@@ -26,4 +26,5 @@ export const amountField = '[ng-model="amount"]';
 export const amountFieldwd = '[type="number"]';
 export const successMessage = '[ng-show="message"]';
 export const btnWd = '[btn btn-default]';
+export const balance = '.btn btn-default';
 
