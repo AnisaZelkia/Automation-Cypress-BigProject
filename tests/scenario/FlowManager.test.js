@@ -263,7 +263,13 @@ describe('Feature : Show Data Customer', () => {
                      
                         cy.get(managerPage.currency).select('Pound');
                         cy.get(managerPage.currency).select('Rupee');
-                        element.click(managerPage.submitbtn);
+                  
+                        cy.get(managerPage.submitbtn).click();           
+                        cy.on(managerPage.alert,(t)=>{
+                           //assertions
+                           expect(t).to.contains("Account created successfully with account Number :"+acctNo);
+                        })
+                     
                   
                       });
                    
