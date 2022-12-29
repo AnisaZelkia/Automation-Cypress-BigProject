@@ -253,7 +253,8 @@ describe('Feature : Show Data Customer', () => {
                         cy.get(managerPage.userSelect).select('3');
                         cy.get(managerPage.userSelect).select('4');
                         cy.get(managerPage.userSelect).select('5');
-            
+                      });
+                   
 
 
 });
