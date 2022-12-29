@@ -16,3 +16,4 @@ export const alert = 'window:alert';
 export const deleteBtn ='[ng-click="deleteCust(cust)"]';
 export const searchfield ='[ng-model="searchCustomer"]';
 export const openBtn = '[ng-click="openAccount()"]';
+export const currency = '[name="currency"]';

@@ -253,6 +253,18 @@ describe('Feature : Show Data Customer', () => {
                         cy.get(managerPage.userSelect).select('3');
                         cy.get(managerPage.userSelect).select('4');
                         cy.get(managerPage.userSelect).select('5');
+
+                     
+                        cy.get(managerPage.currency)
+                        assert.shouldContainText(managerPage.currency,"---Currency---");
+                    
+                        // Select option(s) with matching text content
+                       cy.get(managerPage.currency).select('Dollar');
+                     
+                        cy.get(managerPage.currency).select('Pound');
+                        cy.get(managerPage.currency).select('Rupee');
+                        element.click(managerPage.submitbtn);
+                  
                       });
                    
 
